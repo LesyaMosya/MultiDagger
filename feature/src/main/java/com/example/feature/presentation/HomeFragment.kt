@@ -7,8 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import com.example.feature.di.HomeComponentProvider
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
 import com.example.feature.R
+import com.example.feature.di.HomeComponentViewModel
+import com.example.feature.di.HomeDependenciesProvider
 import javax.inject.Inject
 
 
@@ -24,9 +27,12 @@ class HomeFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        (context.applicationContext as HomeComponentProvider)
-            .getHomeComponent()
+
+        ViewModelProvider(this)
+            .get<HomeComponentViewModel>()
+            .newDetailsComponent
             .inject(this)
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

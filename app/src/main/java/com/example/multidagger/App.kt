@@ -1,26 +1,21 @@
 package com.example.multidagger
 
 import android.app.Application
-import com.example.feature.di.HomeDependencies
-import com.example.feature.di.HomeDependenciesProvider
+import com.example.feature.di.HomeDependenciesStore
 
-class App: Application(), HomeDependenciesProvider {
+class App: Application() {
 
-    lateinit var appComponent: AppComponent
-
-    override fun onCreate() {
-        super.onCreate()
-        appComponent = DaggerAppComponent.builder()
+    val appComponent: AppComponent by lazy {
+        DaggerAppComponent.builder()
             .application(this)
             .baseUrl("https://www.flickr.com/services/rest/")
             .extraUrl("https://api.coingecko.com/api/v3/")
             .build()
-
-
     }
 
-    override fun getHomeDependencies(): HomeDependencies {
-        return appComponent
+    override fun onCreate() {
+        super.onCreate()
+        HomeDependenciesStore.dependencies = appComponent
     }
 
 }

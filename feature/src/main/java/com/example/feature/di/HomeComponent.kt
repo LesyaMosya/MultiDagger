@@ -1,5 +1,6 @@
 package com.example.feature.di
 
+import androidx.lifecycle.ViewModel
 import com.example.feature.presentation.HomeFragment
 import dagger.Component
 import javax.inject.Scope
@@ -15,12 +16,16 @@ interface HomeComponent {
     @Component.Builder
     interface Builder {
 
-        fun dependencies(homDeps: HomeDependencies): Builder
+        fun dependencies(homeDependencies: HomeDependencies): Builder
 
         fun build(): HomeComponent
     }
 }
 
-interface HomeComponentProvider {
-    fun getHomeComponent(): HomeComponent
+internal class HomeComponentViewModel : ViewModel() {
+    val newDetailsComponent =
+        DaggerHomeComponent
+            .builder()
+            .dependencies(HomeDependenciesProvider.dependencies)
+            .build()
 }

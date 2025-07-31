@@ -5,6 +5,7 @@ import com.example.core.ApiModule
 import com.example.core.AppScope
 import com.example.core.BaseUrl
 import com.example.core.ExtraUrl
+import com.example.core.NewService
 import com.example.core.Service
 import com.example.feature.di.HomeDependencies
 import dagger.BindsInstance
@@ -14,6 +15,7 @@ import dagger.Component
 interface AppComponent: HomeDependencies {
 
     override fun getService(): Service
+    override fun getNewService(): NewService
 
     @Component.Builder
     interface Builder {
