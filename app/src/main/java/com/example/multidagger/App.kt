@@ -1,10 +1,10 @@
 package com.example.multidagger
 
 import android.app.Application
-import com.example.feature.HomeComponent
-import com.example.feature.HomeComponentProvider
+import com.example.feature.di.HomeDependencies
+import com.example.feature.di.HomeDependenciesProvider
 
-class App: Application(), HomeComponentProvider {
+class App: Application(), HomeDependenciesProvider {
 
     lateinit var appComponent: AppComponent
 
@@ -13,12 +13,14 @@ class App: Application(), HomeComponentProvider {
         appComponent = DaggerAppComponent.builder()
             .application(this)
             .baseUrl("https://www.flickr.com/services/rest/")
+            .extraUrl("https://api.coingecko.com/api/v3/")
             .build()
 
 
     }
 
-    override fun getHomeComponent(): HomeComponent {
+    override fun getHomeDependencies(): HomeDependencies {
         return appComponent
     }
+
 }

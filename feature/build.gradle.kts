@@ -37,6 +37,9 @@ dependencies {
 
     implementation(project(":core"))
 
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.fragment.ktx)
+
     //Retrofit
     implementation(libs.retrofit)
     implementation(libs.converter.gson)

@@ -21,6 +21,19 @@ class ApiModule {
     @Provides
     fun provideService(retrofit: Retrofit): Service =
         retrofit.create(Service::class.java)
+
+    @AppScope
+    @Provides
+    @SecondServer
+    fun provideNewRetrofit(@ExtraUrl baseUrl: String): Retrofit = Retrofit.Builder()
+        .addConverterFactory(GsonConverterFactory.create())
+        .baseUrl(baseUrl)
+        .build()
+
+    @AppScope
+    @Provides
+    fun provideNewService(@SecondServer retrofit: Retrofit): NewService =
+        retrofit.create(NewService::class.java)
 }
 
 @Scope
@@ -30,3 +43,11 @@ annotation class AppScope
 @Qualifier
 @Retention(AnnotationRetention.RUNTIME)
 annotation class BaseUrl
+
+@Qualifier
+@Retention(AnnotationRetention.RUNTIME)
+annotation class SecondServer
+
+@Qualifier
+@Retention(AnnotationRetention.RUNTIME)
+annotation class ExtraUrl
