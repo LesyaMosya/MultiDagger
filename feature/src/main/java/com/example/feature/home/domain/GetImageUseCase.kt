@@ -1,6 +1,6 @@
-package com.example.feature.domain
+package com.example.feature.home.domain
 
-import com.example.feature.data.HomeRepository
+import com.example.feature.home.data.HomeRepository
 import javax.inject.Inject
 
 class GetImageUseCase @Inject constructor(

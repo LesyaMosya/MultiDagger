@@ -9,8 +9,8 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/container"
+        android:name="com.example.feature.home.presentation.HomeFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:name="com.example.feature.presentation.HomeFragment"/>
+        android:layout_height="match_parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

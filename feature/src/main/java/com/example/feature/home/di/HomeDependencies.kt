@@ -1,13 +1,13 @@
-package com.example.feature.di
+package com.example.feature.home.di
 
 import androidx.annotation.RestrictTo
-import com.example.core.NewService
-import com.example.core.Service
+import com.example.core.CoinGeckoService
+import com.example.core.FlickrService
 import kotlin.properties.Delegates.notNull
 
 interface HomeDependencies {
-    fun getService(): Service
-    fun getNewService(): NewService
+    fun getFlickrService(): FlickrService
+    fun getCoinGeckoService(): CoinGeckoService
 }
 
 interface HomeDependenciesProvider {

@@ -12,28 +12,29 @@ class ApiModule {
 
     @AppScope
     @Provides
-    fun provideRetrofit(@BaseUrl baseUrl: String): Retrofit = Retrofit.Builder()
+    @FlickrServer
+    fun provideRetrofit(@FlickrUrl baseUrl: String): Retrofit = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
         .baseUrl(baseUrl)
         .build()
 
     @AppScope
     @Provides
-    fun provideService(retrofit: Retrofit): Service =
-        retrofit.create(Service::class.java)
+    fun provideService(@FlickrServer retrofit: Retrofit): FlickrService =
+        retrofit.create(FlickrService::class.java)
 
     @AppScope
     @Provides
-    @SecondServer
-    fun provideNewRetrofit(@ExtraUrl baseUrl: String): Retrofit = Retrofit.Builder()
+    @CoinGeckoServer
+    fun provideNewRetrofit(@CoinGeckoUrl baseUrl: String): Retrofit = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
         .baseUrl(baseUrl)
         .build()
 
     @AppScope
     @Provides
-    fun provideNewService(@SecondServer retrofit: Retrofit): NewService =
-        retrofit.create(NewService::class.java)
+    fun provideNewService(@CoinGeckoServer retrofit: Retrofit): CoinGeckoService =
+        retrofit.create(CoinGeckoService::class.java)
 }
 
 @Scope
@@ -42,12 +43,16 @@ annotation class AppScope
 
 @Qualifier
 @Retention(AnnotationRetention.RUNTIME)
-annotation class BaseUrl
+annotation class FlickrUrl
 
 @Qualifier
 @Retention(AnnotationRetention.RUNTIME)
-annotation class SecondServer
+annotation class FlickrServer
 
 @Qualifier
 @Retention(AnnotationRetention.RUNTIME)
-annotation class ExtraUrl
+annotation class CoinGeckoServer
+
+@Qualifier
+@Retention(AnnotationRetention.RUNTIME)
+annotation class CoinGeckoUrl

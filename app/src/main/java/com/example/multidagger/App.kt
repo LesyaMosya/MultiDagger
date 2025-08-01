@@ -1,7 +1,7 @@
 package com.example.multidagger
 
 import android.app.Application
-import com.example.feature.di.HomeDependenciesStore
+import com.example.feature.home.di.HomeDependenciesStore
 
 class App: Application() {
 

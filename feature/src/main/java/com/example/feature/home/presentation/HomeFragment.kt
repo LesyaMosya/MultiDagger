@@ -1,4 +1,4 @@
-package com.example.feature.presentation
+package com.example.feature.home.presentation
 
 import android.content.Context
 import android.os.Bundle
@@ -10,8 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import com.example.feature.R
-import com.example.feature.di.HomeComponentViewModel
-import com.example.feature.di.HomeDependenciesProvider
+import com.example.feature.home.di.HomeComponentViewModel
 import javax.inject.Inject
 
 

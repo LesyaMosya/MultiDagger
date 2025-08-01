@@ -7,7 +7,7 @@ import retrofit2.http.Headers
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-interface Service {
+interface FlickrService {
 
     @GET("?method=flickr.photos.getSizes&api_key=da9d38d3dee82ec8dda8bb0763bf5d9c&format=json&nojsoncallback=1")
     suspend fun getFullSizeImage(
@@ -15,7 +15,7 @@ interface Service {
     ): SizesResponse
 }
 
-interface NewService {
+interface CoinGeckoService {
 
     @Headers("x-cg-demo-api-key: CG-QS9uxxeV2SPizHgzQC3Y8tyK")
     @GET("coins/{id}")

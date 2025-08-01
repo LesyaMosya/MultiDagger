@@ -1,4 +1,4 @@
-package com.example.feature.presentation
+package com.example.feature.home.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -7,8 +7,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.core.model.CryptocurrencyWithDescription
 import com.example.core.model.Size
-import com.example.feature.domain.GetCryptocurrencyUseCase
-import com.example.feature.domain.GetImageUseCase
+import com.example.feature.home.domain.GetCryptocurrencyUseCase
+import com.example.feature.home.domain.GetImageUseCase
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject

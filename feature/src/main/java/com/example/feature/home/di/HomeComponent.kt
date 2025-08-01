@@ -1,7 +1,7 @@
-package com.example.feature.di
+package com.example.feature.home.di
 
 import androidx.lifecycle.ViewModel
-import com.example.feature.presentation.HomeFragment
+import com.example.feature.home.presentation.HomeFragment
 import dagger.Component
 import javax.inject.Scope
 
@@ -10,7 +10,7 @@ import javax.inject.Scope
 annotation class Feature
 
 @[Feature Component(dependencies = [HomeDependencies::class])]
-interface HomeComponent {
+internal interface HomeComponent {
     fun inject(fragment: HomeFragment)
 
     @Component.Builder
